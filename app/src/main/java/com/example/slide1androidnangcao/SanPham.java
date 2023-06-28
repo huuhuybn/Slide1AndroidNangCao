@@ -4,12 +4,23 @@ public class SanPham {
     String maSP;
     String tenSP;
     float giaSP;
+    int color;
     // khởi tạo pt set get bằng cách nào ?????
 
     public SanPham(String maSP, String tenSP, float giaSP) {
         this.maSP = maSP;
         this.tenSP = tenSP;
         this.giaSP = giaSP;
+    }
+
+    @Override
+    public String toString() {
+        return "SanPham{" +
+                "maSP='" + maSP + '\'' +
+                ", tenSP='" + tenSP + '\'' +
+                ", giaSP=" + giaSP +
+                ", color=" + color +
+                '}';
     }
 
     public String getMaSP() {

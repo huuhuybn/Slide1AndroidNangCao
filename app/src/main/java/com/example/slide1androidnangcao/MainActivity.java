@@ -4,9 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-
+    SanPhamAdapter sanPhamAdapter;
+    ListView lvListSP;
+    ArrayList<SanPham> phamArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,13 +21,19 @@ public class MainActivity extends AppCompatActivity {
         DBHelper dbHelper =
                 new DBHelper(MainActivity.this);
         findViewById(R.id.btnSave).setOnClickListener(view -> {
-            SanPham sp1 = new SanPham("ip12Pro1", "Iphone1", 5000);
-            SanPham sp2 = new SanPham("ip12Pro2", "Iphone2", 6000);
-            SanPham sp3 = new SanPham("ip12Pro3", "Iphone3", 7000);
+            SanPham sp1 = new SanPham("ip12Pro1" + new Random().nextInt(), "Iphone1", 5000);
             SanPhamDAO sanPhamDAO = new SanPhamDAO(MainActivity.this,
                     dbHelper);
             sanPhamDAO.insertSP(sp1);
+            phamArrayList.add(sp1);
+            sanPhamAdapter.notifyDataSetChanged(); // listview ko khac phuc duoc !!!!
         });
-        
+        lvListSP = findViewById(R.id.lvListSP);
+        SanPhamDAO sanPhamDAO = new SanPhamDAO(MainActivity.this,
+                dbHelper);
+        phamArrayList = sanPhamDAO.getAll();
+        sanPhamAdapter = new SanPhamAdapter(phamArrayList);
+        lvListSP.setAdapter(sanPhamAdapter);
     }
 }
+//RecycleView
