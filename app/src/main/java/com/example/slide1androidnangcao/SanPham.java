@@ -1,9 +1,9 @@
 package com.example.slide1androidnangcao;
 
 public class SanPham {
-    String maSP;
-    String tenSP;
-    float giaSP;
+    public String maSP;
+    public String tenSP;
+    public float giaSP;
     int color;
     // khởi tạo pt set get bằng cách nào ?????
 
@@ -32,6 +32,7 @@ public class SanPham {
     }
 
     public String getTenSP() {
+        // security
         return tenSP;
     }
 
