@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Slide1AndroidNangCao"
         tools:targetApi="31">
         <activity
+            android:name=".slide2.Slide2Activity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
