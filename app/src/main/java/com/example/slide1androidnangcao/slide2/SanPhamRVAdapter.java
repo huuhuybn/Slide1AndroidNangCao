@@ -31,6 +31,11 @@ public class SanPhamRVAdapter extends RecyclerView.Adapter<SanPhamViewHolder> {
     public void onBindViewHolder(@NonNull SanPhamViewHolder holder, int position) {
         SanPham sp = arrayList.get(position);
         holder.tvInfo.setText(sp.getTenSP().concat(sp.getMaSP()));
+        holder.btnDel.setOnClickListener(v -> {
+            arrayList.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position,arrayList.size());
+        });
     }
     @Override
     public int getItemCount() {

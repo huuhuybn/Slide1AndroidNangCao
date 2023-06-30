@@ -19,6 +19,7 @@ public class Slide2Activity extends AppCompatActivity {
 
     ArrayList<SanPham> sanPhams;
     RecyclerView rvList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +30,11 @@ public class Slide2Activity extends AppCompatActivity {
         rvList = findViewById(R.id.rvList);
         SanPhamRVAdapter sanPhamRVAdapter = new SanPhamRVAdapter(sanPhams);
         rvList.setAdapter(sanPhamRVAdapter);
-       /* LinearLayoutManager ln = new LinearLayoutManager(this,
-                LinearLayoutManager.HORIZONTAL,false);*/
-
-        GridLayoutManager ln = new GridLayoutManager(this,4);
+        LinearLayoutManager ln = new LinearLayoutManager(this,
+               LinearLayoutManager.VERTICAL,false);
+        /*GridLayoutManager ln = new GridLayoutManager(this,4);*/
+        /*GridLayoutManager ln = new GridLayoutManager(this,
+                4, GridLayoutManager.HORIZONTAL, false);*/
         rvList.setLayoutManager(ln);
     }
 }

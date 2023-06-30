@@ -1,6 +1,7 @@
 package com.example.slide1androidnangcao.slide2;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -10,9 +11,11 @@ import com.example.slide1androidnangcao.R;
 
 public class SanPhamViewHolder extends RecyclerView.ViewHolder {
 
+    public final Button btnDel;
     public final TextView tvInfo;
     public SanPhamViewHolder(@NonNull View itemView) {
         super(itemView);
+        btnDel = itemView.findViewById(R.id.btnDel);
         tvInfo = itemView.findViewById(R.id.tvMaSP);
     }
 }
